@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,6 +8,7 @@ export default defineConfig({
     globals: true,
     coverage: {
       provider: 'v8',
+      reporter: ['text', 'html'],
     },
   },
   resolve: {
@@ -16,4 +17,4 @@ export default defineConfig({
       '@tests': path.resolve(__dirname, './tests'),
     },
   },
-});
+})
