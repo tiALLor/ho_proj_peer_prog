@@ -18,7 +18,7 @@ export default (db: Database) => {
       }
 
       // a hard-coded solution for your first controller test
-      const ids = req.query.id!.split(',').map(Number)
+      const ids = req.query.id.split(',').map(Number)
       const movies = await messages.findByIds(ids)
 
       res.status(200)

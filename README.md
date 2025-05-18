@@ -76,7 +76,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
    - capacity
    - available free seats (as calculated value from bookings)
 
-   d) screening schema:
+   d) Screening schema:
 
    - id (primary key, self increment, positive integer )
    - movie id (positive integer) referencing Movies database table
@@ -128,7 +128,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
    - screening date and screening time
    - number of booked seats
 
-   d) schema:
+   d) Ticket schema:
 
    - id (primary key, self increment, positive integer )
    - screening id (positive integer) referencing Screening database table
@@ -168,20 +168,35 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
 
    b) requirements/ validation:
 
+   - movie id (positive integer)
+
+   c) output:
+
+   - id (user)
+   - user name
+   - user role
+
+   d) User schema:
+
+   - id (primary key, self increment, positive integer )
+   - user name (string, not null)
+   - user role (administrator or user)
+
+7. Get user by ID:
+   a) input data
+
+   - id (user)
+
+   b) requirements/ validation:
+
    - user name (string)
    - user role (administrator or user)
 
    c) output:
 
-   - is (user)
+   - id (user)
    - user name
    - user role
-
-   d) schema:
-
-   - id (primary key, self increment, positive integer )
-   - user name (string, not null)
-   - user role (administrator or user)
 
 ## License
 

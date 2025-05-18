@@ -13,7 +13,7 @@ type RowSelectable = Selectable<Row>
 
 export default (db: Database) => ({
   // create user
-  async createUser(record: RowInsert): Promise<RowSelectable[]> {
+  async createUser(record: RowInsert | RowInsert[]): Promise<RowSelectable[]> {
     const user = await db
       .insertInto(TABLE)
       .values(record)
@@ -23,11 +23,16 @@ export default (db: Database) => ({
     return user
   },
   // find user by id
-  findUserById(id: number): Promise<RowSelectable | undefined> {
+  getUserById(id: number): Promise<RowSelectable | undefined> {
     return db
       .selectFrom(TABLE)
       .select(keys)
       .where('id', '=', id)
       .executeTakeFirst()
+  },
+
+  // find all users
+  getUsers(): Promise<RowSelectable[] | undefined> {
+    return db.selectFrom(TABLE).select(keys).execute()
   },
 })

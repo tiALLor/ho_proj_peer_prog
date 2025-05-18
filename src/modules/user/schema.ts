@@ -5,7 +5,7 @@ type Record = User
 
 const schema = z.object({
   id: z.coerce.number().int().positive(),
-  userName: z.coerce.string().min(1).max(25),
+  userName: z.string().min(1).max(25),
   role: z.enum(['admin', 'user']),
 })
 
