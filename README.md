@@ -58,7 +58,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
 
    - user id
    - movie id
-   - screening time stamp
+   - screening time stamp as date and time
    - screening viewers capacity
 
    b) requirements/ validation:
@@ -80,10 +80,46 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
 
    - id (primary key, self increment, positive integer )
    - movie id (positive integer) referencing Movies database table
-   - date stamp (date time as string)
+   - date (date as string)
+   - time (time as string)
    - capacity (positive integer)
 
-2. Delete screening:
+2. Get screening by ID:
+   a) input data
+
+   - id (screening)
+
+   b) requirements/ validation:
+
+   - id (screening)
+
+   c) output:
+
+   - id (screening)
+   - movie: name and year
+   - screening date and screening time
+   - capacity
+   - available free seats (as calculated value from bookings)
+
+3. Get all screenings:
+   a) input data
+
+   - id (screening)
+
+   b) requirements/ validation:
+
+   - id (screening)
+
+   c) output:
+
+   - list of screenings with data:
+     -- id (screening)
+     -- movie: name and year
+     -- screening date and screening time
+     -- capacity
+     -- available free seats (as calculated value from bookings)
+
+4. Delete screening:
 
    a) data inputs:
 
@@ -102,9 +138,8 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
    - movie: name and year
    - screening date and screening time
    - capacity
-   - available free seats
 
-3. Create a booking (ticket):
+5. Create a booking (ticket):
 
    a) data inputs:
 
@@ -134,7 +169,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
    - screening id (positive integer) referencing Screening database table
    - booked seats (positive integer)
 
-4. Get users list of bookings:
+6. Get users list of bookings:
    a) input data
 
    - user id
@@ -147,7 +182,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
 
    - list of tickets (id (ticket), screening id, movie: name and year, screening date and screening time, number of booked seats)
 
-5. Get list of movies:
+7. Get list of movies:
    a) input data
 
    - list of movie id's
@@ -160,7 +195,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
 
    - list of movies (id (movie), title, year)
 
-6. Create a user:
+8. Create a user:
    a) input data
 
    - user name
@@ -182,7 +217,7 @@ A **Movie Ticket Booking System** built with Express.Js, TypeScript, Kysely, Bet
    - user name (string, not null)
    - user role (administrator or user)
 
-7. Get user by ID:
+9. Get user by ID:
    a) input data
 
    - id (user)
