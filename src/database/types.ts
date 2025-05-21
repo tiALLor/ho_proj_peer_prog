@@ -27,6 +27,14 @@ export interface Ratings {
   votes: number;
 }
 
+export interface Screening {
+  capacity: number;
+  date: string;
+  id: Generated<number>;
+  movieId: number;
+  time: string;
+}
+
 export interface Stars {
   movieId: number;
   personId: number;
@@ -43,6 +51,7 @@ export interface DB {
   movies: Movies;
   people: People;
   ratings: Ratings;
+  Screening: Screening;
   stars: Stars;
   User: User;
 }

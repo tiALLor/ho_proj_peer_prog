@@ -28,7 +28,10 @@ it('throws a error by missing userName or role', () => {
 
 describe('parseId', () => {
   it('should throw a error if id is not a number', () => {
-    expect(() => schema.parseId(fakeUserFull({ id: 'jhash'}))).toThrow(/Expected number/)
+    // @ts-ignore
+    expect(() => schema.parseId(fakeUserFull({ id: 'jhash' }))).toThrow(
+      /Expected number/
+    )
   })
 })
 

@@ -16,8 +16,8 @@ afterEach(async () => {
 afterAll(() => db.destroy())
 
 // create user
-describe('create user', async () => {
-  it('should allow to create a new user', async () => {
+describe('create user', () => {
+  it('should allow to create a new user with data', async () => {
     const user = await repository.createUser({
       userName: 'Luc Bluesky',
       role: 'admin',
@@ -44,15 +44,13 @@ describe('create user', async () => {
 
   it('should allow to create several users', async () => {
     const users = await repository.createUser(moreUsers)
-    expect(users).toEqual([
-      userMatcher(moreUsers[0]),
-      userMatcher(moreUsers[1]),
-    ])
+
+    const matcher = [userMatcher(moreUsers[0]), userMatcher(moreUsers[1])]
+
+    expect(users).toEqual(matcher)
+
     const usersInDatabase = await selectUser()
-    expect(usersInDatabase).toEqual([
-      userMatcher(moreUsers[0]),
-      userMatcher(moreUsers[1]),
-    ])
+    expect(usersInDatabase).toEqual(matcher)
   })
 })
 
