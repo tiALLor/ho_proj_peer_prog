@@ -12,6 +12,7 @@ export const fakeScreening = (
   ...overrides,
 })
 
+export const futureDate = format(addDays(new Date(), 5), 'yyyy-MM-dd')
 export const pastDate = format(subDays(new Date(), 1), 'yyyy-MM-dd')
 export const today = format(new Date(), 'yyyy-MM-dd')
 

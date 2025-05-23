@@ -100,11 +100,11 @@ describe('find user by ID with "GET/:id"', () => {
 
     const { body } = await supertest(app).get('/user/154').expect(200)
 
-    expect(body).toEqual(userMatcher())
+    expect(body).toEqual(userMatcher({ id: 154 }))
 
     // checking directly in the database
     const userInDatabase = await selectUser((eb) => eb('id', '=', 154))
-    expect(userInDatabase).toEqual([userMatcher()])
+    expect(userInDatabase).toEqual([userMatcher( { id: 154 })])
     expect(await selectUser()).toHaveLength(3)
   })
 

@@ -107,7 +107,7 @@ describe('select screening by id', () => {
   })
 })
 
-describe('select all screenings in the database', () => {
+describe('get all screenings in the database', () => {
   it('shall return all screenings in the database', async () => {
     createScreening(moreScreenings)
 
